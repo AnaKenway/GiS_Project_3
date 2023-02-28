@@ -17,7 +17,7 @@ namespace GiS_Project_3.Controllers
         }
 
         [HttpGet(Name = "GetTrafficData")]
-        public IEnumerable<TrafficData> Get()
+        public IEnumerable<TrafficData> GetTrafficData()
         {
             var context = new NisContext();
             
