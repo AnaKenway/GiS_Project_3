@@ -19,7 +19,6 @@ namespace GiS_Project_3.Controllers
             using var con = new NpgsqlConnection(connString);
             con.Open();
 
-            var spatialSql = "SELECT sum(ST_Length(way))/1000 AS km_roads FROM nis_road_line;";
             var jointSpatialSql = @$"SELECT education.osm_id as Id
                         FROM  nis_education_polygon AS education 
                         JOIN nis_road_line AS roads ON ST_Dwithin(roads.way, education.way,{radius}) 
