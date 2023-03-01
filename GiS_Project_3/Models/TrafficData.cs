@@ -1,5 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Device.Location;
+using System.Runtime.Serialization;
 
 namespace GiS_Project_3.Models
 {
@@ -32,10 +35,14 @@ namespace GiS_Project_3.Models
         public string VehicleType { get; set; }
 
         [Column("vehicle_x")]
-        public double VehicleX { get; set; }
+        public double Longitude { get; set; }
 
         [Column("vehicle_y")]
-        public double VehicleY { get; set;}
+        public double Latitude { get; set;}
+
+        //[NotMapped]
+        //[JsonIgnore]
+        //public GeoCoordinate? geoCoordinate => new GeoCoordinate(Latitude, Longitude);
 
     }
 }
