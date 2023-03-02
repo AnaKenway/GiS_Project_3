@@ -28,7 +28,7 @@ namespace GiS_Project_3.Controllers
             var jointSpatialSql = @$"SELECT road.name
                 FROM nis_road_line AS road
                 JOIN nis_fcd AS car
-                ON ST_DWithin(road.way, ST_Transform(ST_SetSRID(ST_MakePoint(car.vehicle_x, car.vehicle_y), 3857),3857),10000000)
+                ON ST_DWithin(road.way, ST_Transform(ST_SetSRID(ST_MakePoint(car.vehicle_x, car.vehicle_y), 4326),3857),100)
                 WHERE vehicle_speed > {speed} AND road.name IS NOT NULL AND car.vehicle_type IN ('bike_bicycle','bus_bus') AND timestep_time = {timestep}
                 ORDER BY vehicle_speed DESC, road.name ASC
                 limit 50";
